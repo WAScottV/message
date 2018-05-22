@@ -7,7 +7,8 @@ Incorporates state machines and pure functions to enable richly composed interac
 
 ## Usage
 
-# Super simple to use
+Super simple to use
+---
 
 const {machine} =    required('@xmachina/message')
 
