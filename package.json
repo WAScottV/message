@@ -1,7 +1,7 @@
 {
-  "name": "messagemachine",
+  "name": "message",
   "version": "0.5.0",
-  "description": "Strtageic Machines Message Object",
+  "description": "Strategic Machines Message Object",
   "main": "server.js",
   "engines": {
     "node": "^8.6.0",
@@ -10,11 +10,11 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pdhoward/scriptxio.git"
+    "url": "git+https://github.com/strategicmarket/message.git"
   },
-  "author": "xio",
+  "author": "Strategic Machines",
   "license": "MIT",
-  "homepage": "http://www.xiollc.com",
+  "homepage": "http://www.strategicmachines.io",
   "bugs": {},
   "keywords": [
     "strategic machines",
