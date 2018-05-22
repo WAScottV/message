@@ -7,23 +7,23 @@ Incorporates state machines and pure functions to enable richly composed interac
 
 ## Usage
 
-Super simple to use
+super simple to use
 ---
-
+```javascript
 const {machine} =    required('@xmachina/message')
 
 machine().then((m) => {
   m.setConnection(req.conn)         // connection
-  m.setModelObj(modelObject)        // intialize work object with schema model
-  m.setMessage(req.body)           // update workobj with message
-  m.setPostdate()                  // timestamp workobj
+  m.setModelObj(modelObject)        // initialize data object with schema model
+  m.setMessage(req.body)           // update data object with message
+  m.setPostdate()                  // timestamp data object 
   m.setCustomer(req.customer)
   m.setConfig(req.config)
   m.findMember().then((response) => {
     // do something
     })
   })
-
+```
 ## License and Use
  [LICENSE](./LICENSE.txt)
 
