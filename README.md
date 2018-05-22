@@ -1,22 +1,27 @@
 
-## scriptxio
+## message
 
-low latency messaging platform supporting custom configurations for intelligent vistual agents
+constructor for the low latency messaging platform, providing developers with a set of functions to write elegant functions for managing a dialogue
 
 Incorporates state machines and pure functions to enable richly composed interactions with virtual agents.
 
-## Getting Set Up
+## Usage
 
-Getting the app running on your local machine takes only a few steps:
+Super simple to use
 
-1. clone the project - `git clone https://github.com/pdhoward/scriptxio.git
-2. install its dependencies - `npm install`
-3. Update configuration parameters
-4. start the app - npm run dev
+const {machine} =    required('@xmachina/message')
 
-This will start the webpack server for the frontend and nodejs
-
-The code base is isomorphic, with key configuration data shared between client and server functions
+machine().then((m) => {
+  m.setConnection(req.conn)         // connection
+  m.setModelObj(modelObject)        // intialize work object with schema model
+  m.setMessage(req.body)           // update workobj with message
+  m.setPostdate()                  // timestamp workobj
+  m.setCustomer(req.customer)
+  m.setConfig(req.config)
+  m.findMember().then((response) => {
+    // do something
+    })
+  })
 
 ## License and Use
  [LICENSE](./LICENSE.txt)
@@ -24,6 +29,6 @@ The code base is isomorphic, with key configuration data shared between client a
 ## Contributing
  [contributing](.github/CONTRIBUTING.md)
 
-xio labs and affiliates
+Strategic Machines labs and affiliates
 
 connecting businesses with the conversational economy
