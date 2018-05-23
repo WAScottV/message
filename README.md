@@ -1,9 +1,9 @@
 
 ## message
 
-Constructor for the low latency messaging platform from Strategic Machines, helping to connect business to the conversational economy. This constructor simplifies the development of microservices, by providing a set of functions to deliver elegant and richly composed interactions between users and virtual agents
+Constructor for the low latency messaging platform from Strategic Machines, helping to connect businesses to the conversational economy. This constructor simplifies the development of microservices, by providing a set of functions to deliver elegant and richly composed interactions between users and virtual agents
 
-Incorporates state machines and pure functions 
+Incorporates state machines and pure functions
 
 ## Usage
 

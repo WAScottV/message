@@ -5,7 +5,7 @@
 
 const interactObj =     require("../schemas/Interact")
 const agentObj  =       require('../schemas/Agent')
-const clientObj =       require('../schemas/Client')
+//const clientObj =       require('../schemas/Client')
 const memberObj =       require('../schemas/Member')
 
     //////////////////////////////////////////////////////
