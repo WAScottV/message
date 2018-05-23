@@ -3,10 +3,10 @@
 /////////////   mongo db functions        /////////////
 //////////////////////////////////////////////////////
 
-const interactObj =     require("../db/schemas/Interact")
-const agentObj  =       require('../db/schemas/Agent')
-const clientObj =       require('../db/schemas/Client')
-const memberObj =       require('../db/schemas/Member')
+const interactObj =     require("../schemas/Interact")
+const agentObj  =       require('../schemas/Agent')
+const clientObj =       require('../schemas/Client')
+const memberObj =       require('../schemas/Member')
 
     //////////////////////////////////////////////////////
     //////        interaction collection           //////
