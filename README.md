@@ -1,9 +1,9 @@
 
 ## message
 
-constructor for the low latency messaging platform, providing developers with a set of functions to write elegant functions for managing a dialogue
+Constructor for the low latency messaging platform from Strategic Machines, helping to connect business to the conversational economy. This constructor simplifies the development of microservices, by providing a set of functions to deliver elegant and richly composed interactions between users and virtual agents
 
-Incorporates state machines and pure functions to enable richly composed interactions with virtual agents.
+Incorporates state machines and pure functions 
 
 ## Usage
 
@@ -16,7 +16,7 @@ machine().then((m) => {
   m.setConnection(req.conn)         // connection
   m.setModelObj(modelObject)        // initialize data object with schema model
   m.setMessage(req.body)           // update data object with message
-  m.setPostdate()                  // timestamp data object 
+  m.setPostdate()                  // timestamp data object
   m.setCustomer(req.customer)
   m.setConfig(req.config)
   m.findMember().then((response) => {
