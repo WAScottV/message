@@ -204,7 +204,7 @@ const repository = () => {
      return new Promise((resolve, reject) => {
        resolve(workObj.config.twilio)
        return
-     }
+     })
    }
    const updateTwilioConfig = (resp) => {
      let newObj = {}
