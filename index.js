@@ -66,6 +66,13 @@ const repository = () => {
       resolve(db.findLastInteraction(obj, conn))
       })
     }
+
+  const saveInteraction = () => {
+    let obj = clone(workObj)
+    return new Promise((resolve, reject) => {
+      resolve(db.saveInt(obj, conn))
+      })
+  }
   ////////////////////////////////////////
   /////   Agents                 ////////
   //////////////////////////////////////
@@ -409,6 +416,7 @@ const repository = () => {
     getWatsonClassification,
     getWorkObj,
     incrementDialogue,
+    saveInteraction,
     setAgent,
     setAgentReply,
     setConfig,
@@ -425,7 +433,7 @@ const repository = () => {
     setReply,
     setWatsonClassification,
     updateMachineState,
-    updateMeter,    
+    updateMeter,
     updateWorkObj
     })
   }
