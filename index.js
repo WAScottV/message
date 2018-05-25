@@ -200,18 +200,11 @@ const repository = () => {
      return
    }
 
-   const getTwilioConfig = () => {
+   const getConfig = () => {
      return new Promise((resolve, reject) => {
-       resolve(workObj.config.twilio)
+       resolve(workObj.config)
        return
      })
-   }
-   const updateTwilioConfig = (resp) => {
-     let newObj = {}
-     newObj.config = {}
-     newObj.config.twilio = resp
-     updateWorkObj(newObj)           // object with member data appended to workobject
-     return
    }
 
    const setMember = (resp) => {
@@ -412,7 +405,7 @@ const repository = () => {
     getMachineState,
     getMeter,
     getStatus,
-    getTwilioConfig,
+    getConfig,
     getWatsonClassification,
     getWorkObj,
     incrementDialogue,
@@ -432,8 +425,7 @@ const repository = () => {
     setReply,
     setWatsonClassification,
     updateMachineState,
-    updateMeter,
-    updateTwilioConfig,
+    updateMeter,    
     updateWorkObj
     })
   }
