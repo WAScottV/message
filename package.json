@@ -1,6 +1,6 @@
 {
   "name": "@xmachina/message",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "description": "Strategic Machines Message Object",
   "main": "server.js",
   "engines": {
