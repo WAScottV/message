@@ -10,7 +10,8 @@ const dayjs =                 require('dayjs')
 const errMsg =                require('./config').error()
 const db =                    require('./api/db')
 const http =                  require('./api/http')
-const { setMessage } =        require('./functions')
+const { setMessage,
+        updateWorkObj } =        require('./functions')
 const {isNull} =              require('./utils')
 const { g, b, gr, r, y } =    require('./console')
 
@@ -18,10 +19,10 @@ const { g, b, gr, r, y } =    require('./console')
 // and exposes function for low latency message processing
 
 const repository = () => {
-
+  /*
   // workobject is updated by stage
   let workObj = {}
-
+  */
   // db connection - based on customer api
   let conn = {}
 
@@ -98,6 +99,7 @@ const repository = () => {
       })
     }
 
+/*
   ////////////////////////////////////////
   /////   workObject functons     ///////
   //////////////////////////////////////
@@ -105,6 +107,7 @@ const repository = () => {
     workObj = { ...workObj, ...obj }
     return
   }
+*/
 
   const setModelObj = (obj) => {
     workObj = clone(obj)                // make a copy without prototypal reference
