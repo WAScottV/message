@@ -10,6 +10,7 @@ const dayjs =                 require('dayjs')
 const errMsg =                require('./config').error()
 const db =                    require('./api/db')
 const http =                  require('./api/http')
+const { setMessage } =        require('./functions')
 const {isNull} =              require('./utils')
 const { g, b, gr, r, y } =    require('./console')
 
@@ -220,12 +221,14 @@ const repository = () => {
      updateWorkObj(newObj)           // object with member data appended to workobject
      return
    }
+   /*
    const setMessage = (resp) => {
      let newObj = {}
      newObj.message = resp
      updateWorkObj(newObj)           // object with message data appended to workobject
      return
    }
+   */
    const setAgent = (resp) => {
      let newObj = {}
      newObj.agent = resp
