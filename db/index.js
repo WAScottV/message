@@ -7,8 +7,8 @@
 
 const clone =                 require('clone-deep')
 const dayjs =                 require('dayjs')
-const errMsg =                require('./config').error()
-const { g, b, gr, r, y } =    require('./console')
+const errMsg =                require('../config').error()
+const { g, b, gr, r, y } =    require('../console')
 
 // factory function, that holds an transient data object
 // these functions are used by the machine factory function
@@ -25,20 +25,19 @@ const repository = () => {
   /////   workObject functons     ///////
   //////////////////////////////////////
 
-  exports.updateWorkObj = (obj) => {
+  const updateWorkObj = (obj) => {
     workObj = { ...workObj, ...obj }
     return
   }
 
-  exports.setWorkObj = (obj) => {
+  const setWorkObj = (obj) => {
     workObj = clone(obj)
     return
   }
 
-  exports.getWorkObj = () => {
+  const getWorkObj = () => {
     return workObj
   }
-
 
 //
 ////////////////////////////////////////
@@ -77,10 +76,9 @@ return Object.create({
 }
 
 const db = () => {
-return new Promise((resolve, reject) => {
-
-  resolve(repository())
-})
+    return new Promise((resolve, reject) => {
+      resolve(repository())
+    })
 }
 
 // the only exposed method of this module
