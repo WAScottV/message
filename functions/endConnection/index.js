@@ -8,11 +8,11 @@
 
 const {db}      = require('../db')
 
-exports.setConnection = (connection) => {
+exports.endConnection = (connection) => {
   db()
   .then((d) => {
-    d.setConnection(connection)
-    return
+    d.disconnect()
+    return true
   })
 
 }
