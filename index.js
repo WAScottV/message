@@ -11,12 +11,17 @@ const errMsg =                require('./config').error()
 const db =                    require('./api/db')
 const http =                  require('./api/http')
 const { endConnection,
+        findMember,
+        getConfig,
         getConnection,
         getWorkObj,
+        setConfig,
         setConnection,
+        setCustomer,
         setMessage,
-        setModelObj
-       } =     require('./functions')
+        setModelObj,
+        setPostdate
+                      } =     require('./functions')
 const {isNull} =              require('./utils')
 const { g, b, gr, r, y } =    require('./console')
 
@@ -53,7 +58,7 @@ const repository = () => {
             })
           })
         }
-
+/*
   ////////////////////////////////////////
   /////   Members                 ///////
   //////////////////////////////////////
@@ -63,7 +68,7 @@ const repository = () => {
       resolve(db.findMember(obj, conn))
       })
     }
-
+*/
   ////////////////////////////////////////
   /////   Interactions            ///////
   //////////////////////////////////////
