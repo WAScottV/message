@@ -10,10 +10,13 @@ const dayjs =                 require('dayjs')
 const errMsg =                require('./config').error()
 const db =                    require('./api/db')
 const http =                  require('./api/http')
-const { setMessage,
-        setConnection,
+const { endConnection,
         getConnection,
-        endConnection } =     require('./functions')
+        getWorkObj,
+        setConnection,
+        setMessage,
+        setModelObj
+       } =     require('./functions')
 const {isNull} =              require('./utils')
 const { g, b, gr, r, y } =    require('./console')
 
@@ -191,13 +194,14 @@ const repository = () => {
      let i = workObj.machine.thisSlot             // position in the skill array for this interaction
      return workObj.agent.skills[i].skillsource
    }
-
+/*
    const setPostdate = (resp) => {
      let newObj = {}
      newObj.postdate = Date.now()
      updateWorkObj(newObj)           // post time stamp for message
      return
    }
+
    // save customer profile to workobj; not recorded in interact
    const setCustomer = (resp) => {
      let newObj = {}
@@ -205,6 +209,7 @@ const repository = () => {
      updateWorkObj(newObj)
      return
    }
+   */
    // save config profile to workobj; not recorded in interact
    const setConfig = (resp) => {
      let newObj = {}
