@@ -1,6 +1,4 @@
 
-
-
 exports.setMessage = (resp) => {
   let newObj = {}
   newObj.message = resp

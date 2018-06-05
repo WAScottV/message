@@ -37,6 +37,7 @@ const repository = () => {
 //////////////////////////////////////////////////
 
 return Object.create({
+  updateWorkObj,
 
   })
 }
