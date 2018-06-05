@@ -13,7 +13,7 @@ exports.setMessage = (resp) => {
   newObj.message = resp
 
   db()
-  .then(() => {
+  .then((d) => {
     d.updateWorkObj(newObj)           // object with message data appended to workobject
     return
   })

@@ -115,11 +115,11 @@ const repository = () => {
     workObj = clone(obj)                // make a copy without prototypal reference
     return
   }
-*/
+
   const getWorkObj = () => {
     return workObj
   }
-
+*/
   const getStatus = () => {
     return workObj.status
   }

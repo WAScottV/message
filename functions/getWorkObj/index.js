@@ -8,12 +8,11 @@
 
 const {db}      = require('../db')
 
-exports.setModelObj = (obj) => {
+exports.getWorkObj = (obj) => {
 
   db()
   .then((d) => {
-    d.setWorkObj(obj)
-    return
+    return d.getWorkObj()          
   })
 
 }
