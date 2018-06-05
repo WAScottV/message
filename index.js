@@ -11,7 +11,9 @@ const errMsg =                require('./config').error()
 const db =                    require('./api/db')
 const http =                  require('./api/http')
 const { setMessage,
-        setConnection } =     require('./functions')
+        setConnection,
+        getConnection,
+        endConnection } =     require('./functions')
 const {isNull} =              require('./utils')
 const { g, b, gr, r, y } =    require('./console')
 
@@ -107,13 +109,13 @@ const repository = () => {
     workObj = { ...workObj, ...obj }
     return
   }
-*/
+
 
   const setModelObj = (obj) => {
     workObj = clone(obj)                // make a copy without prototypal reference
     return
   }
-
+*/
   const getWorkObj = () => {
     return workObj
   }
@@ -408,7 +410,7 @@ const repository = () => {
 
   return Object.create({
     classifyMessage,
-    disconnect,
+    endConnection,
     findAgent,
     findLastInteraction,
     findMember,

@@ -30,8 +30,14 @@ const repository = () => {
     return
   }
 
-  // include functions which follow CRUD
-  // set, get, update, delete?
+  exports.setWorkObj = (obj) => {
+    workObj = clone(obj)
+    return
+  }
+
+  exports.getWorkObj = () => {
+    return workObj
+  }
 
 
 //
@@ -61,11 +67,12 @@ const disconnect = () => {
 //////////////////////////////////////////////////
 
 return Object.create({
-  updateWorkObj,
-  setConnection,
+  disconnect,
   getConnection,
-  disconnect
-
+  getWorkObj,
+  setConnection,
+  setWorkObj,
+  updateWorkObj
   })
 }
 
