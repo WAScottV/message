@@ -10,7 +10,7 @@ const dayjs =                 require('dayjs')
 const errMsg =                require('./config').error()
 const { g, b, gr, r, y } =    require('./console')
 
-// factory function, that holds an open connection to the db,
+// factory function, that holds an transient data object
 // these functions are used by the machine factory function
 
 const repository = () => {
