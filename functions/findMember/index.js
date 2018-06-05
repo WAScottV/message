@@ -8,10 +8,11 @@
 const dbc =       require('../../api/db')
 const {db} =      require('../../db')
 
-exports.findMember = (resp) => {
-  let newObj = {}
-  newObj.message = resp
-
+exports.findMember = (obj, conn) => {
+  console.log("findmember in message")
+  console.log(obj)
+  console.log(conn)
+/*
   db()
   .then((d) => {
     let obj = d.getWorkObj()
@@ -19,6 +20,10 @@ exports.findMember = (resp) => {
     return new Promise((resolve, reject) => {
       resolve(dbc.findMember(obj, conn))
       })
+  })
+*/
+  return new Promise((resolve, reject) => {
+    resolve(dbc.findMember(obj, conn))
   })
 
 }

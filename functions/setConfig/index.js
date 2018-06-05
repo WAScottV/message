@@ -8,7 +8,7 @@
 
 const {db} =          require('../../db')
 
-exports.setMessage = (resp) => {
+exports.setConfig = (resp) => {
   let newObj = {}
   newObj.config = resp
 
