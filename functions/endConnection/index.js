@@ -6,7 +6,7 @@
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
 
-const {db}      = require('../db')
+const {db}      = require('../../db')
 
 exports.endConnection = (connection) => {
   db()
