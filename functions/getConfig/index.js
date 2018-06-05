@@ -8,14 +8,10 @@
 
 const {db}      = require('../db')
 
-exports.setMessage = (resp) => {
-  let newObj = {}
-  newObj.config = resp
-
+exports.getConfig = (resp) => {
   db()
   .then((d) => {
-    d.updateWorkObj(newObj)           // object with message data appended to workobject
-    return
+    return d.getWorkObj().config
   })
 
 }

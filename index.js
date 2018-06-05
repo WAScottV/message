@@ -209,7 +209,7 @@ const repository = () => {
      updateWorkObj(newObj)
      return
    }
-   */
+
    // save config profile to workobj; not recorded in interact
    const setConfig = (resp) => {
      let newObj = {}
@@ -224,7 +224,7 @@ const repository = () => {
        return
      })
    }
-
+*/
    const setMember = (resp) => {
      let newObj = {}
      newObj.member = resp
