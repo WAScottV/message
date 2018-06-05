@@ -15,12 +15,15 @@ const { g, b, gr, r, y } =    require('./console')
 
 const repository = () => {
 
+  // data object is updated by stage
+  let workObj = {}
+
+  // db connection
+  let conn = {}
+
   ////////////////////////////////////////
   /////   workObject functons     ///////
   //////////////////////////////////////
-
-  // workobject is updated by stage
-  let workObj = {}
 
   exports.updateWorkObj = (obj) => {
     workObj = { ...workObj, ...obj }
@@ -32,12 +35,36 @@ const repository = () => {
 
 
 //
+////////////////////////////////////////
+/////   connection              ///////
+//////////////////////////////////////
+const setConnection = (connection) => {
+  conn = connection
+
+  conn.on('close', () => {
+    console.log(b('connection closed...'))
+  })
+
+  return
+  }
+
+const getConnection = () => {
+    return conn
+  }
+
+// this will close the database connection
+const disconnect = () => {
+  conn.close()
+}
 ////////////////////////////////////////////////////
 /////          export all functions         ///////
 //////////////////////////////////////////////////
 
 return Object.create({
   updateWorkObj,
+  setConnection,
+  getConnection,
+  disconnect
 
   })
 }

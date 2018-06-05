@@ -1,4 +1,4 @@
-// repository.js
+
 'use strict'
 ///////////////////////////////////////////////////////////////////
 ////////////             Strategic Machines          /////////////
@@ -11,7 +11,7 @@ const errMsg =                require('./config').error()
 const db =                    require('./api/db')
 const http =                  require('./api/http')
 const { setMessage,
-        updateWorkObj } =        require('./functions')
+        setConnection } =     require('./functions')
 const {isNull} =              require('./utils')
 const { g, b, gr, r, y } =    require('./console')
 
@@ -24,7 +24,7 @@ const repository = () => {
   let workObj = {}
   */
   // db connection - based on customer api
-  let conn = {}
+  //let conn = {}
 
   //////////////////////////////////////////////////////
   //////          Watson SDK                     //////
@@ -378,7 +378,7 @@ const repository = () => {
     return
   }
 
-
+/*
   ////////////////////////////////////////
   /////   connection              ///////
   //////////////////////////////////////
@@ -401,6 +401,7 @@ const repository = () => {
     conn.close()
   }
   //
+  */
   ////////////////////////////////////////////////////
   /////          export all functions         ///////
   //////////////////////////////////////////////////
