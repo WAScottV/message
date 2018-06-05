@@ -8,7 +8,7 @@
 
 const {db} =            require('../../db')
 
-exports.setMessage = (resp) => {
+exports.setCustomer = (resp) => {
   let newObj = {}
   newObj.customer = resp
 

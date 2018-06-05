@@ -452,8 +452,7 @@ const repository = () => {
     setReply,
     setWatsonClassification,
     updateMachineState,
-    updateMeter,
-    updateWorkObj
+    updateMeter
     })
   }
 
