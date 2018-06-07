@@ -26,16 +26,25 @@ const repository = () => {
   //////////////////////////////////////
 
   const updateWorkObj = (obj) => {
+    console.log("updateworkobj")
+    console.log(obj)
     workObj = { ...workObj, ...obj }
+    console.log("updateworkobj - merge completed")
+    console.log(workObj)
     return
   }
 
   const setWorkObj = (obj) => {
+    consoile.log(obj)
     workObj = clone(obj)
+    console.log("setworkobj - clone competed")
+    console.log(workObj)
     return
   }
 
   const getWorkObj = () => {
+    console.log("ENTERED getWordObj")
+    console.log(workObj)
     return workObj
   }
 

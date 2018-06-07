@@ -9,6 +9,7 @@
 const {db} =      require('../../db')
 
 exports.setMessage = (resp) => {
+  console.log("TRACE Message")
   let newObj = {}
   newObj.message = resp
 

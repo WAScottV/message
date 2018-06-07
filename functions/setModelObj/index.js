@@ -10,6 +10,9 @@ const {db} =          require('../../db')
 
 exports.setModelObj = (obj) => {
 
+  console.log("TRACE")
+  console.log(obj)
+
   db()
   .then((d) => {
     d.setWorkObj(obj)
