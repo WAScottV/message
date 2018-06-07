@@ -6,17 +6,13 @@
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
 
-const {db} =      require('../../db')
+
+const {updateWorkObj} = require('../WorkObj')
 
 exports.setMessage = (resp) => {
-  console.log("TRACE Message")
+  console.log("entered setmessage")
   let newObj = {}
   newObj.message = resp
-
-  db()
-  .then((d) => {
-    d.updateWorkObj(newObj)
-    return
-  })
+  updateWorkObj(newObj)
 
 }

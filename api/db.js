@@ -279,7 +279,7 @@ const memberObj =       require('../schemas/Member')
 //////////////////////////////////////////////////////
 //////         member collection              //////
 ////////////////////////////////////////////////////
-exports.findMember = (obj, conn) => {
+exports.fetchMember = (obj, conn) => {
 let Member
 try {
   Member = conn.model('Member')

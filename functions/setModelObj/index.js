@@ -6,17 +6,9 @@
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
 
-const {db} =          require('../../db')
+const {setWorkObj} = require('../WorkObj')
 
 exports.setModelObj = (obj) => {
-
-  console.log("TRACE")
-  console.log(obj)
-
-  db()
-  .then((d) => {
-    d.setWorkObj(obj)
-    return
-  })
-
+  console.log("entered setmodelobj")
+  setWorkObj(obj)
 }

@@ -5,17 +5,11 @@
 ////////////             Strategic Machines          /////////////
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
+const {updateWorkObj} = require('../WorkObj')
 
-const {db} =        require('../../db')
-
-exports.setPostdate = (resp) => {
+exports.setPostdate = () => {
   let newObj = {}
   newObj.postdate = Date.now()
-
-  db()
-  .then((d) => {
-    d.updateWorkObj(newObj)
-    return
-  })
+  updateWorkObj(newObj)
 
 }

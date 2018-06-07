@@ -6,13 +6,8 @@
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
 
-const {db} =        require('../../db')
+const {fetchWorkObj} = require('../WorkObj')
 
-exports.getWorkObj = (obj) => {
-
-  db()
-  .then((d) => {
-    return d.getWorkObj()
-  })
-
+exports.getWorkObj = () => {
+    return fetchWorkObj()
 }

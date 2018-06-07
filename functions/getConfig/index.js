@@ -6,12 +6,9 @@
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
 
-const {db} =       require('../../db')
+const {getWorkObj} =       require('../WorkObj')
 
-exports.getConfig = (resp) => {
-  db()
-  .then((d) => {
-    return d.getWorkObj().config
-  })
+exports.getConfig = () => {
+    return getWorkObj().config
 
 }

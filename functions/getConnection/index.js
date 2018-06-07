@@ -6,12 +6,9 @@
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
 
-const {db} =       require('../../db')
+const {fetchConnection} =       require('../Connection')
 
-exports.getConnection = (connection) => {
-  db()
-  .then((d) => {
-    return d.getConnection()
+exports.getConnection = () => {
+  return fetchConnection()
 
-  })
 }

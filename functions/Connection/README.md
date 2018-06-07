@@ -1,7 +1,7 @@
 
-## endConnection
+## setMessage
 
-close the db uri connection
+update transient data object with req.body information from text channel
 
 
 

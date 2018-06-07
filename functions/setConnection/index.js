@@ -6,13 +6,9 @@
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
 
-const {db} =         require('../../db')
+const {newConnection} =         require('../Connection')
 
 exports.setConnection = (connection) => {
-  db()
-  .then((d) => {
-    d.setConnection(connection)
-    return
-  })
-
+  newConnection(connection)
+  return true
 }

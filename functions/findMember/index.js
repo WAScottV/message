@@ -5,40 +5,29 @@
 ////////////             Strategic Machines          /////////////
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
-const dbc =       require('../../api/db')
-const {db} =      require('../../db')
+const {getWorkObj} =        require('../getWorkObj')
+const {getConnection} =     require('../getConnection')
+const {fetchMember} =       require('../../api/db')
 
 exports.findMember = async () => {
-  let obj = await getWorkObj()
-  let conn = await getConnection()
+  let obj = await WorkObj()
+  let conn = await Connection()
   let member = await getMember(obj, conn)
   return member
 }
 
-const getWorkObj = () => {
+const WorkObj = () => {
   return new Promise ((resolve, reject) => {
-    db()
-    .then((d) => {
-      let obj = d.getWorkObj()
-      console.log("ENTERED findmember work")
-      console.log(obj)
-      console.log(d.getWorkObj())
-      //resolve(obj)
-    })
+    resolve(getWorkObj())
   })
 }
-const getConnection = () => {
+const Connection = () => {
   return new Promise ((resolve, reject) => {
-    db()
-    .then((d) => {
-      let conn = d.getConnection()
-      console.log("ENTERED findmember conn")
-      console.log(conn)
-      resolve(conn) })
+    resolve(getConnection())
   })
 }
 const getMember = (obj, conn) => {
   return new Promise((resolve, reject) => {
-    resolve(dbc.findMember(obj, conn))
+    resolve(fetchMember(obj, conn))
   })
 }

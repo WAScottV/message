@@ -29,10 +29,10 @@ const { g, b, gr, r, y } =    require('./console')
 // and exposes function for low latency message processing
 
 const repository = () => {
-  /*
+
   // workobject is updated by stage
-  let workObj = {}
-  */
+  //let workObj = {}
+
   // db connection - based on customer api
   //let conn = {}
 
