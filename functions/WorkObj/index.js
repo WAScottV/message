@@ -1,24 +1,22 @@
 
 
-'use strict'
-///////////////////////////////////////////////////////////////////
-////////////             Strategic Machines          /////////////
-///////////         machine constructor    c2017    //////////////
-/////////////////////////////////////////////////////////////////
-const clone =                 require('clone-deep')
+// generate functions for managing the data object
+const {WorkObj} =   require('./workobj')
 
-let workObj = {}
+const updateWorkObj = WorkObj.updateWorkObj.bind(WorkObj);
+const setWorkObj = WorkObj.setWorkObj.bind(WorkObj);
+const fetchWorkObj = WorkObj.fetchWorkObj.bind(WorkObj);
+/*
+console.log("DEBUG WorkObj")
+console.log(WorkObj)
+console.log(typeof WorkObj)
+console.log(fetchWorkObj())
+updateWorkObj({newmsg: "more messages"})
+console.log(fetchWorkObj())
+setWorkObj({now: 'everything has changed'})
+console.log(fetchWorkObj())
+*/
 
-exports.updateWorkObj = (obj) => {
-  workObj = { ...workObj, ...obj }
-  return
-}
-
-exports.setWorkObj = (obj) => {
-  workObj = clone(obj)
-  return
-}
-
-exports.fetchWorkObj = () => {
-    return workObj
-}
+module.exports = Object.assign({}, { updateWorkObj,
+                                     setWorkObj,
+                                    fetchWorkObj })
