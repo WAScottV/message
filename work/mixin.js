@@ -11,7 +11,7 @@ electric skateboards, or portable device chargers.
 withFlying() could be used to model flying cars, rockets, or air balloons.
 */
 
-import withConstructor from './with-constructor';
+const {withConstructor} = require('./with-constructor');
 
 const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
 // or `import pipe from 'lodash/fp/flow';`
@@ -52,6 +52,7 @@ const createDrone = ({ capacity = '3000mAh' }) => pipe(
   withConstructor(createDrone)
 )({});
 const myDrone = createDrone({ capacity: '5500mAh' });
+
 console.log(`
   can fly:  ${ myDrone.fly().isFlying() === true }
   can land: ${ myDrone.land().isFlying() === false }
@@ -62,3 +63,9 @@ console.log(`
 console.log(`
   constructor linked: ${ myDrone.constructor === createDrone }
 `);
+
+exports.newDrone = createDrone({ capacity: '7777mAh' });
+
+exports.createDrone = createDrone
+
+/// My TESTS .... Will a new object be created?
