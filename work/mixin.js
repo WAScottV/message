@@ -1,13 +1,5 @@
 
 
-// with-constructor.js
-const withConstructor = constructor => o => {
-  const proto = Object.assign({},
-    Object.getPrototypeOf(o),
-    { constructor }
-  );
-  return Object.assign(Object.create(proto), o);
-};
 
 //////////////////
 //Now you can import it and use it with other mixins:
@@ -20,6 +12,7 @@ withFlying() could be used to model flying cars, rockets, or air balloons.
 */
 
 import withConstructor from './with-constructor';
+
 const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
 // or `import pipe from 'lodash/fp/flow';`
 // Set up some functional mixins
