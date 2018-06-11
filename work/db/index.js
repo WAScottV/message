@@ -10,12 +10,14 @@ withBattery() could be used with other kinds of objects, like robots,
 electric skateboards, or portable device chargers.
 withFlying() could be used to model flying cars, rockets, or air balloons.
 */
-
+const {withFlying}  = require('../../functions/getWorkTest')
 const {constructor} = require('./constructor');
 
 const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
 // or `import pipe from 'lodash/fp/flow';`
 // Set up some functional mixins
+
+/*
 const withFlying = o => {
   let isFlying = false;
   return {
@@ -31,6 +33,7 @@ const withFlying = o => {
     isFlying: () => isFlying
   }
 };
+*/
 const withBattery = ({ capacity }) => o => {
   let percentCharged = 100;
   return {
@@ -47,6 +50,7 @@ const withBattery = ({ capacity }) => o => {
   };
 };
 const createDrone = ({ capacity = '3000mAh' }) => pipe(
+  //getWorkObj(),
   withFlying,
   withBattery({ capacity }),
   constructor(createDrone)
@@ -54,11 +58,18 @@ const createDrone = ({ capacity = '3000mAh' }) => pipe(
 const myDrone = createDrone({ capacity: '5500mAh' });
 
 console.log(`
-  can fly:  ${ myDrone.fly().isFlying() === true }
+  can fly:  ${ myDrone.fly({}).isFlying() === true }
   can land: ${ myDrone.land().isFlying() === false }
   battery capacity: ${ myDrone.capacity }
   battery status: ${ myDrone.draw(50).getCharge() }%
   battery drained: ${ myDrone.draw(75).getCharge() }%
+  getdb: ${ JSON.stringify(myDrone.getdb())}
+  update message: ${ myDrone.setdb({msg: 'updates from my drone '})}
+  get db: ${ JSON.stringify(myDrone.getdb())}
+  another update: ${ JSON.stringify(myDrone.setdb({msg: 'THIS UPDATE '}))}
+  get db: ${ JSON.stringify(myDrone.getdb())}
+  experiment1: ${ JSON.stringify(myDrone.fly({}))}
+  experiment2: ${ JSON.stringify(myDrone.fly({msg: "hey", price: "free"}))}
 `);
 console.log(`
   constructor linked: ${ myDrone.constructor === createDrone }
