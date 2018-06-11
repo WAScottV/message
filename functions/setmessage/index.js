@@ -6,13 +6,14 @@
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
 
-
-const {updateWorkObj} = require('../WorkObj')
-
-exports.setMessage = (resp) => {
-  console.log("entered setmessage")
-  let newObj = {}
-  newObj.message = resp
-  updateWorkObj(newObj)
-
+exports.setMessage = o => {
+  /*
+  return {
+    ...o
+    console.log("entered setmessage")
+    let newObj = {}
+    newObj.message = o
+    WorkObj.updateWorkObj(newObj)
+  }
+  */
 }

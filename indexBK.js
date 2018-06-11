@@ -7,12 +7,10 @@
 const Classifier =            require('watson-developer-cloud/natural-language-classifier/v1')
 const clone =                 require('clone-deep')
 const dayjs =                 require('dayjs')
-const {constructor} =         require('./constructor');
 const errMsg =                require('./config').error()
 const db =                    require('./api/db')
 const http =                  require('./api/http')
 const { endConnection,
-        Connection,
         findMember,
         getConfig,
         getConnection,
@@ -22,21 +20,15 @@ const { endConnection,
         setCustomer,
         setMessage,
         setModelObj,
-        setPostdate,
-        WorkObj
+        setPostdate
                       } =     require('./functions')
 const {isNull} =              require('./utils')
 const { g, b, gr, r, y } =    require('./console')
 
-// the constructor is simply dropped into the pipeline with other
-// functions to produce objects at scale for the messaging
-// platform. Each object holds the data object (text message),
-// net work connection for the network owner, and methods for
-// interrogating the object
+// factory function, that holds an open connection to the db,
+// and exposes function for low latency message processing
 
-const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
-
-//const repository = () => {
+const repository = () => {
 
   // workobject is updated by stage
   //let workObj = {}
@@ -425,48 +417,51 @@ const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
   ////////////////////////////////////////////////////
   /////          export all functions         ///////
   //////////////////////////////////////////////////
-  const createMachine = () => pipe(
-    Connection,
-    WorkObj,
-    constructor(createMachine)
-  )({});
+
+  return Object.create({
+    classifyMessage,
+    endConnection,
+    findAgent,
+    findLastInteraction,
+    findMember,
+    getAgentReply,
+    getConfidenceThreshold,
+    getConnection,
+    getCurrentAgentSkill,
+    getMachineState,
+    getMeter,
+    getStatus,
+    getConfig,
+    getWatsonClassification,
+    getWorkObj,
+    incrementDialogue,
+    saveInteraction,
+    setAgent,
+    setAgentReply,
+    setConfig,
+    setConnection,
+    setContext,
+    setCustomer,
+    setError,
+    setMachineState,
+    setMember,
+    setMessage,
+    setMeter,
+    setModelObj,
+    setPostdate,
+    setReply,
+    setWatsonClassification,
+    updateMachineState,
+    updateMeter
+    })
+  }
+
+const machine = () => {
+  return new Promise((resolve, reject) => {
+
+    resolve(repository())
+  })
+}
 
 // the only exposed method of this module
-exports.createMachine = createMachine
-
-/*
-classifyMessage,
-endConnection,
-findAgent,
-findLastInteraction,
-findMember,
-getAgentReply,
-getConfidenceThreshold,
-getConnection,
-getCurrentAgentSkill,
-getMachineState,
-getMeter,
-getStatus,
-getConfig,
-getWatsonClassification,
-getWorkObj,
-incrementDialogue,
-saveInteraction,
-setAgent,
-setAgentReply,
-setConfig,
-setConnection,
-setContext,
-setCustomer,
-setError,
-setMachineState,
-setMember,
-setMessage,
-setMeter,
-setModelObj,
-setPostdate,
-setReply,
-setWatsonClassification,
-updateMachineState,
-updateMeter,
-*/
+module.exports = Object.assign({}, {machine})

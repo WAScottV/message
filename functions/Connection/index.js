@@ -1,5 +1,4 @@
 
-
 'use strict'
 ///////////////////////////////////////////////////////////////////
 ////////////             Strategic Machines          /////////////
@@ -7,20 +6,20 @@
 /////////////////////////////////////////////////////////////////
 const clone =                 require('clone-deep')
 
-let conn = {}
-
-exports.newConnection = (connection) => {
-  conn = connection
-  conn.on('close', () => {
-    console.log(b('connection closed...'))
-  })
-  return
-}
-
-exports.fetchConnection = () => {
-  return conn
-}
-
-exports.endConnection = () => {
-    conn.close()
+exports.Connection = o => {
+  let conn = {}
+  return {
+    ...o,
+    setConnection (connection) {
+      conn = connection
+      conn.on('close', () => {
+        console.log(b('connection closed...'))
+      })
+      return this
+    },
+    fetchConnection: () => conn,
+    endConnection () {
+        conn.close()
+    }
+  }
 }

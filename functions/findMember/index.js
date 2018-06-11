@@ -9,11 +9,12 @@ const {getWorkObj} =        require('../getWorkObj')
 const {getConnection} =     require('../getConnection')
 const {fetchMember} =       require('../../api/db')
 
-exports.findMember = async () => {
+exports.findMember = async (o) => {
   let obj = await WorkObj()
   let conn = await Connection()
   let member = await getMember(obj, conn)
   return member
+
 }
 
 const WorkObj = () => {
