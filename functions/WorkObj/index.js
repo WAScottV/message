@@ -19,12 +19,27 @@ exports.WorkObj = o => {
       return this
     },
     fetchWorkObj: () => workObj,
-    setMessage (resp) {
-      console.log("entered setMessage")
-      let newObj = {}
-      newObj.message = o
-      this.updateWorkObj(newObj)
+    setModelObj (obj) {
+      this.setWorkObj(obj)
       return this
     }
+    setMessage (obj) {
+      let newObj = {}
+      newObj.message = obj
+      this.updateWorkObj(newObj)
+      return this
+    },
+    setPostdate (obj) {
+      let newObj = {}
+      newObj.postdate = Date.now()
+      this.updateWorkObj(newObj)
+      return this
+    },
+    setCustomer (obj) {
+      let newObj = {}
+      newObj.customer = obj
+      this.updateWorkObj(newObj)
+      return this
+    },
   }
 }
