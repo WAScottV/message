@@ -11,7 +11,7 @@ const errMsg =                require('../../config').error()
 const db =                    require('../../api/db')
 const http =                  require('../../api/http')
 
-exports.Connection = o => {
+exports.Store = o => {
   let conn = {}
   return {
     ...o,

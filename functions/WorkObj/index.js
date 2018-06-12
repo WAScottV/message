@@ -89,6 +89,7 @@ exports.WorkObj = o => {
       workObj.response.reply = [...workObj.response.reply, ...resp.reply]
       return
     },
+
     setWatsonClassification (response) {
        let newObj = {}
        newObj.classifier = {}
@@ -149,7 +150,6 @@ exports.WorkObj = o => {
        newObj.machine = newresponseObj
        this.updateWorkObj(newObj)
      },
-
     setNewDialogue () {
       let newObj = {}
       newObj.status = {}
@@ -263,7 +263,7 @@ exports.WorkObj = o => {
       return
 
      })
-
     }
+
   }
 }

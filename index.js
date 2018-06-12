@@ -4,7 +4,7 @@
 ////////////             Strategic Machines          /////////////
 ///////////         machine constructor    c2017    //////////////
 /////////////////////////////////////////////////////////////////
-
+const {constructor} =         require('./constructor');
 const { Connection,
         Store,
         WorkObj } =           require('./functions')
