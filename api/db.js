@@ -74,7 +74,7 @@ const memberObj =       require('../schemas/Member')
       try {
         Agent = conn.model('Agent')
       } catch (error) {
-        console.log(error)
+        //console.log(error)
         Agent = conn.model('Agent', agentObj.agentSchema);
       }
 

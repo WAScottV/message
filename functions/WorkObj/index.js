@@ -6,6 +6,7 @@
 /////////////////////////////////////////////////////////////////
 const clone =                 require('clone-deep')
 const dayjs =                 require('dayjs')
+const {isNull} =              require('../../utils')
 const errMsg =                require('../../config').error()
 
 exports.WorkObj = o => {
@@ -114,11 +115,7 @@ exports.WorkObj = o => {
        return
      },
      getMachineState: () => workObj.machine.thisState,
-
-     getCurrentAgentSkill () {
-       let i = workObj.machine.thisSlot
-       return workObj.agent.skills[i].skillsource
-     },
+          
      setMember (resp) {
        let newObj = {}
        newObj.member = resp
@@ -180,15 +177,15 @@ exports.WorkObj = o => {
 
       // if no interaction was found
       if (isNull(last)) {
-        console.log(r("setcontext --- step 1"))
-        resetStatus()
-        setNewDialogue()
-        resolve(getStatus())
+        console.log("setcontext --- step 1")
+        this.resetStatus()
+        this.setNewDialogue()
+        resolve(this.getStatus())
         return
       }
 
       if (last.status.isTerminated) {
-        console.log(r("setcontext --- step 1 1/2"))
+        console.log("setcontext --- step 1 1/2")
         this.resetStatus()
         this.setNewDialogue()
         resolve(this.getStatus())
@@ -200,7 +197,7 @@ exports.WorkObj = o => {
       let expireInterval = workObj.config.runparms.expirationInterval
 
       if (elapseTime > expireInterval) {
-        console.log(r("setcontext --- step 2"))
+        console.log("setcontext --- step 2")
         this.resetStatus()
         this.setNewDialogue()
         resolve(this.getStatus())
@@ -212,7 +209,7 @@ exports.WorkObj = o => {
       let nextSlot = last.machine.thisSlot + 1
       let endOfArray = last.agent.skills.length
       if (nextSlot == endOfArray) {
-        console.log(r("setcontext --- step 3"))
+        console.log("setcontext --- step 3")
         this.resetStatus()
         this.setNewDialogue()
         resolve(this.getStatus())
@@ -221,7 +218,7 @@ exports.WorkObj = o => {
 
       // terminate process if runaway machine detected
       if (last.dialogue.sequenceCnt > workObj.config.runparms.machineIterationThrehold) {
-        console.log(r("setcontext --- step 4"))
+        console.log("setcontext --- step 4")
         let err = errMsg.e940
         this.setError(err)
         resolve(this.getStatus())
@@ -231,7 +228,7 @@ exports.WorkObj = o => {
       // terminate process if infinite loop detected - limit on number of iterations for a single agent
       let loop = last.meter.filter((meter) => meter.cnt > workObj.config.runparms.agentCallbackThreshold )
       if (loop.length > 0) {
-        console.log(r("setcontext --- step 5"))
+        console.log("setcontext --- step 5")
         let err = errMsg.e920
         this.setError(err)
         resolve(this.getStatus())
@@ -240,7 +237,7 @@ exports.WorkObj = o => {
 
       // agent requests a callback. Last skill executed will be executed again
       if (last.status.isCallback == true) {
-        console.log(r("setcontext --- step 6"))
+        console.log("setcontext --- step 6")
         this.updateWorkObj(last.machine)
         this.updateWorkObj(last.agent)
         this.updateWorkObj(last.meter)
@@ -257,7 +254,7 @@ exports.WorkObj = o => {
 
       // we know this is an active and existing dialogue. Bring forward critical data
       // from prior interaction
-      console.log(r("setcontext --- step 7"))
+      console.log("setcontext --- step 7")
       resetStatus()
       resolve(getStatus())
       return

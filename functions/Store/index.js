@@ -43,7 +43,7 @@ exports.Store = o => {
         })
       },
     getAgentReply (obj) {
-        let apiparm = { url: getCurrentAgentSkill(),
+        let apiparm = { url: this.getAgentSkill(obj),
                         body: obj,
                         headers: { "Content-Type": "application/json" } };
         //
@@ -51,6 +51,10 @@ exports.Store = o => {
           resolve(http.getAgentResponse(apiparm))
         })
       },
+    getAgentSkill (obj) {
+      let i = obj.machine.thisSlot
+      return obj.agent.skills[i].skillsource
+    },
     findAgent (obj, conn) {
       return new Promise((resolve, reject) => {
         resolve(db.findAgent(obj, conn))
