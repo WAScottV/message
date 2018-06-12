@@ -17,7 +17,7 @@ exports.Connection = o => {
       })
       return this
     },
-    fetchConnection: () => conn,
+    getConnection: () => conn,
     endConnection () {
         conn.close()
     }
