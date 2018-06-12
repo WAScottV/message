@@ -18,7 +18,7 @@ exports.WorkObj = o => {
       workObj = clone(obj)
       return this
     },
-    fetchWorkObj: () => workObj,
+    getWorkObj: () => workObj,
     setModelObj (obj) {
       this.setWorkObj(obj)
       return this
@@ -29,17 +29,27 @@ exports.WorkObj = o => {
       this.updateWorkObj(newObj)
       return this
     },
+    getMessage: () => workObj.message,
     setPostdate (obj) {
       let newObj = {}
       newObj.postdate = Date.now()
       this.updateWorkObj(newObj)
       return this
     },
+    getPostDate: () => workObj.Postdate,
     setCustomer (obj) {
       let newObj = {}
       newObj.customer = obj
       this.updateWorkObj(newObj)
       return this
     },
+    getCustomer: () => workObj.customer,
+    setConfig (obj) {
+      let newObj = {}
+      newObj.config = obj
+      this.updateWorkObj(newObj)
+      return this
+    },
+    getConfig: () => workObj.config
   }
 }
