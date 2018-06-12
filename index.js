@@ -66,17 +66,7 @@ const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
             })
           })
         }
-/*
-  ////////////////////////////////////////
-  /////   Members                 ///////
-  //////////////////////////////////////
-  const findMember = () => {
-    let obj = clone(workObj)
-    return new Promise((resolve, reject) => {
-      resolve(db.findMember(obj, conn))
-      })
-    }
-*/
+/
   ////////////////////////////////////////
   /////   Interactions            ///////
   //////////////////////////////////////
@@ -116,29 +106,6 @@ const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
       resolve(db.findAgent(obj, conn))
       })
     }
-
-/*
-  ////////////////////////////////////////
-  /////   workObject functons     ///////
-  //////////////////////////////////////
-  const updateWorkObj = (obj) => {
-    workObj = { ...workObj, ...obj }
-    return
-  }
-
-
-  const setModelObj = (obj) => {
-    workObj = clone(obj)                // make a copy without prototypal reference
-    return
-  }
-
-  const getWorkObj = () => {
-    return workObj
-  }
-*/
-  const getStatus = () => {
-    return workObj.status
-  }
 
   const getConfidenceThreshold = () => {
     return workObj.config.runparms.confidenceLevel
@@ -207,51 +174,14 @@ const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
      let i = workObj.machine.thisSlot             // position in the skill array for this interaction
      return workObj.agent.skills[i].skillsource
    }
-/*
-   const setPostdate = (resp) => {
-     let newObj = {}
-     newObj.postdate = Date.now()
-     updateWorkObj(newObj)           // post time stamp for message
-     return
-   }
 
-   // save customer profile to workobj; not recorded in interact
-   const setCustomer = (resp) => {
-     let newObj = {}
-     newObj.customer = resp
-     updateWorkObj(newObj)
-     return
-   }
-
-   // save config profile to workobj; not recorded in interact
-   const setConfig = (resp) => {
-     let newObj = {}
-     newObj.config = resp
-     updateWorkObj(newObj)
-     return
-   }
-
-   const getConfig = () => {
-     return new Promise((resolve, reject) => {
-       resolve(workObj.config)
-       return
-     })
-   }
-*/
    const setMember = (resp) => {
      let newObj = {}
      newObj.member = resp
      updateWorkObj(newObj)           // object with member data appended to workobject
      return
    }
-   /*
-   const setMessage = (resp) => {
-     let newObj = {}
-     newObj.message = resp
-     updateWorkObj(newObj)           // object with message data appended to workobject
-     return
-   }
-   */
+
    const setAgent = (resp) => {
      let newObj = {}
      newObj.agent = resp
@@ -368,60 +298,7 @@ const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
    })
 
   }
-  ////////////////////////////////////////
-  /////   States > Workflow       ///////
-  //////////////////////////////////////
-  const resetStatus = () => {
-    workObj.status.isNewInteraction = false
-    workObj.status.isCallback = false
-    workObj.status.isCallforward = false
-    workObj.status.isTerminated = false
-    workObj.status.ErrorMsg = undefined
-    return
-  }
 
-  const setNewDialogue = () => {
-    workObj.machine.name = undefined
-    workObj.machine.thisState = undefined
-    workObj.machine.thisSlot = undefined
-    workObj.status.isNewInteraction = true
-    workObj.dialogue.sequenceCnt = 1       // new dialogue with a new agent. Note default on dialogue schema
-    return
-  }
-
-  const setError = (err) => {
-    workObj.status.isNewInteraction = false
-    workObj.status.isCallback = false
-    workObj.status.isCallforward = false
-    workObj.status.isTerminated = true
-    workObj.status.ErrorMsg = err
-    return
-  }
-
-/*
-  ////////////////////////////////////////
-  /////   connection              ///////
-  //////////////////////////////////////
-  const setConnection = (connection) => {
-    conn = connection
-
-    conn.on('close', () => {
-      console.log(b('connection closed...'))
-    })
-
-    return
-    }
-
-  const getConnection = () => {
-      return conn
-    }
-
-  // this will close the database connection
-  const disconnect = () => {
-    conn.close()
-  }
-  //
-  */
   ////////////////////////////////////////////////////
   /////          export all functions         ///////
   //////////////////////////////////////////////////

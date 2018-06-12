@@ -50,6 +50,42 @@ exports.WorkObj = o => {
       this.updateWorkObj(newObj)
       return this
     },
-    getConfig: () => workObj.config
+    getConfig: () => workObj.config,
+    resetStatus () {
+      let newObj = {}
+      newObj.status = {}
+      newObj.status.isNewInteraction = false
+      newObj.status.isCallback = false
+      newObj.status.isCallforward = false
+      newObj.status.isTerminated = false
+      newObj.status.ErrorMsg = undefined
+      this.updateWorkObj(newObj)
+      return this
+    },
+    setNewDialogue () {
+      let newObj = {}
+      newObj.status = {}
+      newObj.machine = {}
+      newObj.dialogue = {}
+      newObj.status.isNewInteraction = true
+      newObj.machine.name = undefined
+      newObj.machine.thisState = undefined
+      newObj.machine.thisSlot = undefined
+      newObj.dialogue.sequenceCnt = 1
+      this.updateWorkObj(newObj)
+      return this
+    },
+    setError (err) {
+      let newObj = {}
+      newObj.status = {}
+      newObj.status.isNewInteraction = false
+      newObj.status.isCallback = false
+      newObj.status.isCallforward = false
+      newObj.status.isTerminated = true
+      newObj.status.ErrorMsg = err
+      this.updateWorkObj(newObj)
+      return this
+    },
+    getStatus: () => workObj.status,
   }
 }
