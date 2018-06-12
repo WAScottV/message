@@ -24,7 +24,7 @@ exports.WorkObj = o => {
     setModelObj (obj) {
       this.setWorkObj(obj)
       return this
-    }
+    },
     setMessage (obj) {
       let newObj = {}
       newObj.message = obj
@@ -79,17 +79,17 @@ exports.WorkObj = o => {
       this.updateWorkObj(newObj)
       return this
     },
-    setReply (resp) => {
+    setReply (resp) {
       workObj.response.reply.push(resp)
       return
     },
-    setAgentReply (resp) => {
+    setAgentReply (resp) {
       workObj.response.sender = resp.sender
       workObj.response.orgmessage = resp.orgmessage
       workObj.response.reply = [...workObj.response.reply, ...resp.reply]
       return
     },
-    setWatsonClassification (response) => {
+    setWatsonClassification (response) {
        let newObj = {}
        newObj.classifier = {}
        let percent
@@ -108,30 +108,30 @@ exports.WorkObj = o => {
 
      getWatsonClassification: () => workObj.classifier,
 
-     setMachineState (resp) => {
+     setMachineState (resp) {
        workObj.machine = { ...workObj.machine, ...resp }
        return
      },
      getMachineState: () => workObj.machine.thisState,
 
-     getCurrentAgentSkill () => {
+     getCurrentAgentSkill () {
        let i = workObj.machine.thisSlot
        return workObj.agent.skills[i].skillsource
      },
-     setMember (resp) => {
+     setMember (resp) {
        let newObj = {}
        newObj.member = resp
        this.updateWorkObj(newObj)
        return
      },
-     setAgent(resp) => {
+     setAgent(resp) {
        let newObj = {}
        newObj.agent = resp
        this.updateWorkObj(newObj)
        return
      },
 
-     incrementDialogue (resp) => {
+     incrementDialogue (resp) {
        let newObj = {}
        let newresponseObj = {}
        newresponseObj.priorinteract = resp.id    // capture id of last interaction
@@ -139,7 +139,7 @@ exports.WorkObj = o => {
        newObj.dialogue = newresponseObj
        this.updateWorkObj(newObj)                    // update dialogue object
      },
-     updateMachineState (resp) => {
+     updateMachineState (resp) {
        let newObj = {}
        let newresponseObj = {}
        newresponseObj.thisSlot = resp.machine.thisSlot + 1  // increment pointer to next agent skill
@@ -175,7 +175,7 @@ exports.WorkObj = o => {
       return this
     },
     getStatus: () => workObj.status,
-    setContext (last) => {
+    setContext (last) {
       return new Promise((resolve, reject) => {
 
       // if no interaction was found

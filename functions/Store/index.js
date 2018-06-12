@@ -15,7 +15,7 @@ exports.Connection = o => {
   let conn = {}
   return {
     ...o,
-    classifyMessage (obj) => {
+    classifyMessage (obj) {
       // REFACTOR - test for failed conditions - unable to retrieve classifier
       const c = new Classify({
         username: obj.config.watsonclassifier.username,
@@ -32,17 +32,17 @@ exports.Connection = o => {
             })
           })
       },
-    findLastInteraction (obj, conn) => {
+    findLastInteraction (obj, conn) {
         return new Promise((resolve, reject) => {
           resolve(db.findLastInteraction(obj, conn))
           })
         },
-    saveInteraction (obj, conn) => {
+    saveInteraction (obj, conn) {
         return new Promise((resolve, reject) => {
           resolve(db.saveInt(obj, conn))
         })
       },
-    getAgentReply (obj) => {
+    getAgentReply (obj) {
         let apiparm = { url: getCurrentAgentSkill(),
                         body: obj,
                         headers: { "Content-Type": "application/json" } };
@@ -51,12 +51,12 @@ exports.Connection = o => {
           resolve(http.getAgentResponse(apiparm))
         })
       },
-    findAgent (obj, conn) => {
+    findAgent (obj, conn) {
       return new Promise((resolve, reject) => {
         resolve(db.findAgent(obj, conn))
         })
       },
-    findMember (obj, conn) => {
+    findMember (obj, conn) {
       return new Promise((resolve, reject) => {
         resolve(db.fetchMember(obj, conn))
       })
