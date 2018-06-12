@@ -115,7 +115,7 @@ exports.WorkObj = o => {
        return
      },
      getMachineState: () => workObj.machine.thisState,
-          
+
      setMember (resp) {
        let newObj = {}
        newObj.member = resp
@@ -255,8 +255,8 @@ exports.WorkObj = o => {
       // we know this is an active and existing dialogue. Bring forward critical data
       // from prior interaction
       console.log("setcontext --- step 7")
-      resetStatus()
-      resolve(getStatus())
+      this.resetStatus()
+      resolve(this.getStatus())
       return
 
      })
