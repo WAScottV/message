@@ -86,7 +86,7 @@ exports.WorkObj = o => {
     },
     setAgentReply (resp) {
       workObj.response.sender = resp.sender
-      workObj.response.orgmessage = resp.orgmessage
+      workObj.response.orgmessage = clone(resp.orgmessage)
       workObj.response.reply = [...workObj.response.reply, ...resp.reply]
       return
     },
