@@ -128,6 +128,7 @@ exports.WorkObj = o => {
        this.updateWorkObj(newObj)
        return
      },
+     getAgent: () => workObj.agent,
 
      incrementDialogue (resp) {
        let newObj = {}

@@ -23,18 +23,35 @@ super simple to use
 ```javascript
 const {createMachine} =    required('@xmachina/message')    // install the factory function
 
-machine().then((m) => {
-  m.setConnection(req.conn)         // connection
-  m.setModelObj(modelObject)        // initialize data object with schema model
-  m.setMessage(req.body)           // update data object with message
-  m.setPostdate()                  // timestamp data object
-  m.setCustomer(req.customer)
-  m.setConfig(req.config)
-  m.findMember().then((response) => {
-    // do something
-    })
-  })
+const m = createMachine()    // create an object with an array of functions
+
+m.updateWorkObj(obj)       // pass in the data object from Strategic Machine messaging platform to initialize
+                         // the state machine. Context and state of a dialogue is tracked and available for retrieval
+
+// examples
+m.getWorkObj()          // retrieve the latest copy of the data object
+m.getConnection()      // db connection for a customer
+m.getMessage()         // original text message from the channel
+m.getPostdate()        // timestamp at moment text message received
+m.getCustomer()       // network owner info
+m.getMember()        // info about the user who sent the text
+m.getStatus()        // status of this dialogue (new, active, errors, terminated for various reasons)
+m.getMeter()        // count of number of skills (microservices) invoked in the current dialogue
+m.getWatsonClassification() // returns the classifier object from Watson ai engine
+m.getWatsonClassification().confidence // confidence level of Watson ai in identified intent
+m.getWatsonClassification().topclass // identified intent for the current text
+m.getAgent()          // retrieve agent object
+m.getAgent().name     // name of the agent identified for current interaction
+m.getAgent().avatar    // avatar url
+m.getAgent().skills    // array of skills (microserviices) defined for this agent
+m.getMachineState()    // the state of a discussion with a virtual agent .. which is the index to the skills array
+
 ```
+
+Check the code for other available methods and data
+
+Pull Requests welcomed 
+
 ## License and Use
  [LICENSE](./LICENSE.txt)
 
