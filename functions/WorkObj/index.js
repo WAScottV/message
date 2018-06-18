@@ -84,12 +84,16 @@ exports.WorkObj = o => {
       workObj.response.reply.push(resp)
       return
     },
-    setAgentReply (resp) {
+    setResponse (resp) {
       workObj.response.sender = resp.sender
       workObj.response.orgmessage = clone(resp.orgmessage)
       workObj.response.reply = [...workObj.response.reply, ...resp.reply]
+      workObj.response.machine = clone(resp.machine)
+      workObj.response.status = clone(resp.status)
+      workIbj.response.microgram = clone(resp.microgram)
       return
     },
+    getResponse: () => workObj.response,
 
     setWatsonClassification (response) {
        let newObj = {}
