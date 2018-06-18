@@ -90,7 +90,7 @@ exports.WorkObj = o => {
       workObj.response.reply = [...workObj.response.reply, ...resp.reply]
       workObj.response.machine = clone(resp.machine)
       workObj.response.status = clone(resp.status)
-      workIbj.response.microgram = clone(resp.microgram)
+      workObj.response.microgram = clone(resp.microgram)
       return
     },
     getResponse: () => workObj.response,
