@@ -80,7 +80,7 @@ exports.WorkObj = o => {
       this.updateWorkObj(newObj)
       return this
     },
-    setReply (resp) {
+    setAgentReply (resp) {
       workObj.response.reply.push(resp)
       return
     },
