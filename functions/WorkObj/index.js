@@ -97,6 +97,9 @@ exports.WorkObj = o => {
       workObj.response.microgram = clone(resp.microgram)
       return
     },
+    copyResponse (resp) {
+      workObj.response = clone(resp)
+    },
     getResponse: () => workObj.response,
 
     setWatsonClassification (response) {
